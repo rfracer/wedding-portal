@@ -11,15 +11,14 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   name      String   @unique
-
   Company Company[]
 }
 
 model Company {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String
@@ -31,6 +30,6 @@ model Company {
   about     String
   offer     String
   price     String
-  authorId  Int
+  authorId  String   
   author    User     @relation(fields: [authorId], references: [id])
 }
