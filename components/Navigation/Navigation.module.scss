@@ -1,0 +1,29 @@
+.navWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $white-color;
+
+  &.home {
+    background-color: transparent;
+  }
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.userLoginLink {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: $white-color;
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+  }
+}

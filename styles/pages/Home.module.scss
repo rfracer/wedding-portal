@@ -1,0 +1,80 @@
+.header {
+  min-height: 75vh;
+  padding-top: 4rem;
+  background: url(../../public/images/home-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
+  @include desktop {
+    height: 90vh;
+    background-position: center bottom;
+  }
+}
+
+.logo {
+}
+
+.popularCategoriesWrapper {
+  padding: 6rem 0;
+  background-color: $primary-light;
+
+  @include desktop {
+    padding: 8rem 0;
+  }
+}
+
+.subheading {
+  position: relative;
+  font-size: 2.6rem;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: $primary;
+  }
+}
+
+.popularCategoriesItemsWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 6rem;
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.popularCategoryItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background: linear-gradient(rgba(54, 54, 54, 0.2), rgba(54, 54, 54, 0.2)),
+    url(../../public/images/photography-category.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(0.97);
+  }
+
+  h3 {
+    width: 100%;
+    padding: 1rem 3rem;
+    color: $white-color;
+    font-size: 2.3rem;
+    text-transform: uppercase;
+    border: 3px solid $white-color;
+  }
+}
+
+.sectionBlog {
+  padding: 6rem 0;
+}

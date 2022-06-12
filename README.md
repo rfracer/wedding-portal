@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Project in very early development progress!
+
+This would be a wedding portal with companies that can add their offer.
+
+This will be a wedding portal where companies will have possibility to add their offer. On the other side clients will have access to list of companies in specific categories.
 
 ## Getting Started
 

@@ -1,0 +1,25 @@
+.btn {
+  display: block;
+  padding: 8px 30px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.4rem;
+  background-color: $primary;
+  border-radius: 50px;
+  border: 2px solid $primary;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+
+  transition: background-color 0.2s ease-in 0s;
+  background-color: $primary;
+
+  &--outline {
+    background: none;
+    color: $primary;
+  }
+
+  &--fullwidth {
+    width: 100%;
+  }
+}

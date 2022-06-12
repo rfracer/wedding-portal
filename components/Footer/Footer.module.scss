@@ -1,0 +1,47 @@
+.wrapper {
+  padding: 4rem 0;
+  background-color: $primary;
+}
+
+.innerWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  gap: 1.2rem;
+  align-items: center;
+  color: $white-color;
+}
+
+.logoWrapper {
+  width: 120px;
+  height: auto;
+
+  @include desktop {
+    width: 130px;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.loginLink {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+
+  svg {
+    width: 25px;
+    height: 25px;
+    margin-right: 0.5rem;
+  }
+}
+
+.linksList {
+  list-style: none;
+
+  li {
+    margin-bottom: 0.7rem;
+  }
+}
