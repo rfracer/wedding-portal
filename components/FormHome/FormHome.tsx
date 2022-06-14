@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from './FormHome.module.scss';
 import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
@@ -7,6 +8,7 @@ import FormMessage from '../FormMessage/FormMessage';
 import { SearchHomeForm } from '../../types/types';
 
 const FormHome = () => {
+  const router = useRouter();
   const {
     handleSubmit,
     control,
@@ -40,7 +42,10 @@ const FormHome = () => {
   ];
 
   const searchHandler = (data) => {
-    console.log(data);
+    router.push({
+      pathname: data.service.value,
+      query: { city: data.city.value },
+    });
   };
 
   return (

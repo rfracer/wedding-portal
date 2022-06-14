@@ -10,6 +10,7 @@ type Company {
   city: String!
   phone: Int
   email: String!
+  website: String
   photoURL: String!
   about: String!
   offer: String
@@ -22,6 +23,7 @@ input CompanyInput {
   category: String
   city: String
   phone: Int
+  website: String
   email: String
   photoURL: String
   about: String
@@ -33,7 +35,7 @@ input CompanyInput {
 type Query {
   info: String!
   user: User
-  companies(category: String!): [Company]!
+  companies(category: String, city: String): [Company]!
   company(id: ID!): Company
 }
 

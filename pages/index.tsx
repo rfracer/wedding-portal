@@ -53,33 +53,33 @@ const Home = ({ companies }) => {
         <div className='container'>
           <h2 className={styles.subheading}>POPULAR CATEGORIES</h2>
           <div className={styles.popularCategoriesItemsWrapper}>
-            <div className={styles.popularCategoryItem}>
-              <Link href='/'>
-                <a>
+            <Link href='/photography'>
+              <a>
+                <div className={styles.popularCategoryItem}>
                   <div>
                     <h3>Photography</h3>
                   </div>
-                </a>
-              </Link>
-            </div>
-            <div className={styles.popularCategoryItem}>
-              <Link href='/'>
-                <a>
+                </div>
+              </a>
+            </Link>
+            <Link href='/photography'>
+              <a>
+                <div className={styles.popularCategoryItem}>
                   <div>
-                    <h3>MUSIC BANDS</h3>
+                    <h3>Photography</h3>
                   </div>
-                </a>
-              </Link>
-            </div>
-            <div className={styles.popularCategoryItem}>
-              <Link href='/'>
-                <a>
+                </div>
+              </a>
+            </Link>
+            <Link href='/photography'>
+              <a>
+                <div className={styles.popularCategoryItem}>
                   <div>
-                    <h3>Hall</h3>
+                    <h3>Photography</h3>
                   </div>
-                </a>
-              </Link>
-            </div>
+                </div>
+              </a>
+            </Link>
           </div>
         </div>
       </section>

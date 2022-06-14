@@ -27,6 +27,7 @@ model Company {
   phone     Int
   email     String
   photoURL  String
+  website   String
   about     String
   offer     String
   price     String

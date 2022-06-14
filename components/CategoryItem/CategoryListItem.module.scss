@@ -22,6 +22,7 @@
 
 .companyCategory {
   display: inline-block;
+  text-transform: capitalize;
   margin: 1rem 0;
   font-weight: 600;
   color: $primary;

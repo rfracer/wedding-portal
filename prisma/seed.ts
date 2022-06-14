@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 async function main() {
   await prisma.user.create({
     data: {
-      id: '2',
+      id: '1',
       name: 'Kinga',
     },
   });
@@ -21,6 +21,7 @@ async function main() {
       photoURL:
         'https://www.onedo.pl/wp-content/uploads/2021/04/registration-orders.jpg',
       about: 'To jest opis firmy',
+      website: 'https://www.alekadry.pl',
       offer: 'To jest oferta',
       price: '4000-5000',
       authorId: '1',

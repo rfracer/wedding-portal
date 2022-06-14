@@ -2,7 +2,7 @@ import { Context } from '../graphql/context';
 
 export const resolvers = {
   Query: {
-    companies: (_, { category }, { prisma }: Context) => {
+    companies: (_, { category, city }, { prisma }: Context) => {
       return prisma.company.findMany({
         where: {
           category: category,

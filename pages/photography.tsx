@@ -13,13 +13,21 @@ export const getStaticProps: GetStaticProps = async () => {
     query: gql`
       query Companies($category: String!) {
         companies(category: $category) {
+          id
           name
           category
+          city
+          phone
+          email
+          photoURL
+          website
+          about
+          price
         }
       }
     `,
     variables: {
-      category: 'hope is a good thing',
+      category: 'photography',
     },
   });
 
@@ -31,7 +39,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const photography = () => {
+const Photography = ({ companies }) => {
   return (
     <>
       <Head>
@@ -46,10 +54,10 @@ const photography = () => {
           name={'Photography'}
           backgroundImg={'/images/photography-background.jpg'}
         />
-        <CategoryList />
+        <CategoryList data={companies} />
       </Layout>
     </>
   );
 };
 
-export default photography;
+export default Photography;
