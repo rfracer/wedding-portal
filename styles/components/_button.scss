@@ -1,5 +1,5 @@
 .btn {
-  display: block;
+  display: inline-block;
   padding: 8px 30px;
   text-decoration: none;
   text-align: center;
@@ -17,9 +17,15 @@
   &--outline {
     background: none;
     color: $primary;
+
+    &:hover {
+      color: $white-color;
+      background-color: $primary;
+    }
   }
 
   &--fullwidth {
+    display: block;
     width: 100%;
   }
 }

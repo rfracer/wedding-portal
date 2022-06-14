@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Navigation.module.scss';
 import Link from 'next/link';
-import LogoHome from '../../public/images/logo-white.svg';
-import Logo from '../../public/images/logo-color.svg';
+import Logo from '../../public/images/logo-white.svg';
 import { IoPersonCircleOutline } from 'react-icons/io5';
 
 type Props = {
@@ -13,25 +12,23 @@ const Navigation = ({ home }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className='container'>
-      <div className={`${styles.navWrapper} ${home ? styles.home : null}`}>
-        <Link href='/'>
-          <a>
-            {home ? (
-              <LogoHome className={styles.logo} />
-            ) : (
+    <div className={`${styles.navWrapper} ${home ? styles.home : null}`}>
+      <div className='container'>
+        <div className={styles.innerWrapper}>
+          <Link href='/'>
+            <a>
               <Logo className={styles.logo} />
-            )}
-          </a>
-        </Link>
-        <Link href='/login'>
-          <a>
-            <div className={styles.userLoginLink}>
-              <IoPersonCircleOutline />
-              LOGIN
-            </div>
-          </a>
-        </Link>
+            </a>
+          </Link>
+          <Link href='/login'>
+            <a>
+              <div className={styles.userLoginLink}>
+                <IoPersonCircleOutline />
+                LOGIN
+              </div>
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   );

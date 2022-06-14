@@ -1,7 +1,5 @@
 Project in very early development progress!
 
-This would be a wedding portal with companies that can add their offer.
-
 This will be a wedding portal where companies will have possibility to add their offer. On the other side clients will have access to list of companies in specific categories.
 
 ## Getting Started

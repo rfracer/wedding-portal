@@ -1,0 +1,45 @@
+.wrapper {
+  padding: 3rem 0;
+  border-bottom: 1px solid $primary;
+
+  @include desktop {
+    display: flex;
+    gap: 3rem;
+  }
+}
+
+.mainInfo {
+  padding: 2rem 0;
+
+  @include desktop {
+    padding-top: 0;
+  }
+}
+
+.companyTitle {
+  font-size: 2.2rem;
+}
+
+.companyCategory {
+  display: inline-block;
+  margin: 1rem 0;
+  font-weight: 600;
+  color: $primary;
+}
+
+.additionalInfo {
+  .price {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 0.5rem;
+      color: $primary;
+    }
+  }
+  a {
+    margin-top: 2rem;
+  }
+}

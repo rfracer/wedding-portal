@@ -1,13 +1,16 @@
 .navWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: $white-color;
+  background-color: $primary;
+  padding: 2.3rem 0;
 
   &.home {
     background-color: transparent;
   }
+}
+
+.innerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {

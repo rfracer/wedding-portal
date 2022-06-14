@@ -2,7 +2,6 @@ import type { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Navigation from '../components/Navigation/Navigation';
 import Logo from '../public/images/logo-white.svg';
-import { IoPersonCircleOutline } from 'react-icons/io5';
 import { gql } from '@apollo/client';
 import Head from 'next/head';
 import client from '../lib/apollo-client';
