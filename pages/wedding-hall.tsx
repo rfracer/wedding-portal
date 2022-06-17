@@ -8,20 +8,20 @@ import Layout from '../components/Layout/Layout';
 import CategoryHeader from '../components/CategoryHeader/CategoryHeader';
 import CategoryList from '../components/CategoryList/CategoryList';
 
-const Photography = ({ companies }) => {
+const WeddingHall = ({ companies }) => {
   return (
     <>
       <Head>
-        <title>MYDREAMDAY | Photography - Wedding Portal</title>
+        <title>MYDREAMDAY | Wedding Hall/Venue - Wedding Portal</title>
         <meta
           name='description'
-          content='Wedding portal | Photography - find best companies for you'
+          content='Wedding portal | Wedding Hall - find best place for you'
         />
       </Head>
       <Layout>
         <CategoryHeader
-          name={'Photography'}
-          backgroundImg={'/images/photography-background.jpg'}
+          name={'Wedding Hall'}
+          backgroundImg={'/images/hall-category.jpg'}
         />
         <CategoryList data={companies} />
       </Layout>
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     `,
     variables: {
-      category: 'photography',
+      category: 'hall',
     },
   });
 
@@ -60,4 +60,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default Photography;
+export default WeddingHall;

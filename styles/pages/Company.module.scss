@@ -69,3 +69,16 @@
 .companyDescription {
   margin-top: 2rem;
 }
+
+.imageWrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  height: 250px;
+  z-index: 0;
+
+  @include desktop {
+    width: 500px;
+    height: 350px;
+  }
+}

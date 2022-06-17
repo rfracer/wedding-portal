@@ -16,6 +16,19 @@
   }
 }
 
+.imageWrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  height: 250px;
+  z-index: 0;
+
+  @include desktop {
+    width: 450px;
+    height: 300px;
+  }
+}
+
 .companyTitle {
   font-size: 2.2rem;
 }

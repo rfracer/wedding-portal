@@ -3,28 +3,28 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.user.create({
-    data: {
-      id: '1',
-      name: 'Kinga',
-    },
-  });
+  // await prisma.user.create({
+  //   data: {
+  //     id: '3',
+  //     name: 'August',
+  //   },
+  // });
 
   await prisma.company.create({
     data: {
-      id: '1',
-      name: 'AleKadry',
-      category: 'Photography',
+      id: '3',
+      name: 'Biały dwór',
+      category: 'hall',
       city: 'Kalisz',
-      phone: 502554054,
-      email: 'augustbiadala@gmail.com',
+      phone: 602554788,
+      email: 'testhall@gmail.com',
       photoURL:
-        'https://www.onedo.pl/wp-content/uploads/2021/04/registration-orders.jpg',
-      about: 'To jest opis firmy',
-      website: 'https://www.alekadry.pl',
-      offer: 'To jest oferta',
-      price: '4000-5000',
-      authorId: '1',
+        '/images/hall-category.jpg',
+      about: 'To jest opis sali',
+      website: 'https://www.hall.pl',
+      offer: 'To jest oferta sali',
+      price: '200',
+      authorId: '3',
     },
   });
 }

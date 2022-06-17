@@ -10,7 +10,9 @@ const CategoryList = ({ data }) => {
     <div className={styles.wrapper}>
       <div className='container'>
         <p className={styles.resultsCount}>
-          Founded {data.length} {data.length === 1 ? 'service' : 'services'}
+          <span>
+            Founded {data.length} {data.length === 1 ? 'service' : 'services'}
+          </span>
         </p>
         <div className={styles.itemsWrapper}>
           {data.map((company) => (

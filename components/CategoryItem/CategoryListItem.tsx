@@ -21,7 +21,16 @@ const CategoryItem = ({ data }) => {
   } = data;
   return (
     <div className={styles.wrapper}>
-      <Image alt={'test'} src={photoURL} width={500} height={350} />
+      <div className={styles.imageWrapper}>
+        <Image
+          className={styles.image}
+          src={photoURL}
+          alt={name}
+          layout='fill'
+          objectFit='cover'
+          objectPosition='center'
+        />
+      </div>
       <div className={styles.mainInfo}>
         <Link href={`/company/${id}`}>
           <a>
@@ -33,7 +42,8 @@ const CategoryItem = ({ data }) => {
       </div>
       <div className={styles.additionalInfo}>
         <div className={styles.price}>
-          <IoWallet className={styles.moneyIcon} /> {price} zł
+          <IoWallet className={styles.moneyIcon} /> {`${price} $`}
+          {category === 'hall' && '/person'}
         </div>
         <Link href={`/company/${id}`}>
           <a className='btn btn--outline'>VISIT</a>

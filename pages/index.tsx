@@ -1,5 +1,6 @@
 import type { GetStaticProps } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navigation from '../components/Navigation/Navigation';
 import Logo from '../public/images/logo-white.svg';
 import { gql } from '@apollo/client';
@@ -56,26 +57,50 @@ const Home = ({ companies }) => {
             <Link href='/photography'>
               <a>
                 <div className={styles.popularCategoryItem}>
-                  <div>
+                  <Image
+                    src='/images/photography-category.jpg'
+                    className={styles.categoryBackground}
+                    alt='Wedding photographer'
+                    layout='fill'
+                    objectFit='cover'
+                    objectPosition='center'
+                  />
+                  <div className={styles.categoryItemTitle}>
                     <h3>Photography</h3>
                   </div>
                 </div>
               </a>
             </Link>
-            <Link href='/photography'>
+            <Link href='/music-band'>
               <a>
                 <div className={styles.popularCategoryItem}>
-                  <div>
-                    <h3>Photography</h3>
+                  <Image
+                    src='/images/band-category.jpg'
+                    className={styles.categoryBackground}
+                    alt='Music band'
+                    layout='fill'
+                    objectFit='cover'
+                    objectPosition='center'
+                  />
+                  <div className={styles.categoryItemTitle}>
+                    <h3>Music band</h3>
                   </div>
                 </div>
               </a>
             </Link>
-            <Link href='/photography'>
+            <Link href='/wedding-hall'>
               <a>
                 <div className={styles.popularCategoryItem}>
-                  <div>
-                    <h3>Photography</h3>
+                  <Image
+                    src='/images/hall-category.jpg'
+                    className={styles.categoryBackground}
+                    alt='Wedding photographer'
+                    layout='fill'
+                    objectFit='cover'
+                    objectPosition='center'
+                  />
+                  <div className={styles.categoryItemTitle}>
+                    <h3>WEDDING HALL</h3>
                   </div>
                 </div>
               </a>

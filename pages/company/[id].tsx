@@ -54,12 +54,16 @@ const CompanyPage = ({ company }) => {
                 <a href={`mailto:${company.email}`}>{company.email}</a>
               </span>
             </div>
-            <Image
-              alt={'test'}
-              src={company.photoURL}
-              width={500}
-              height={350}
-            />
+            <div className={styles.imageWrapper}>
+              <Image
+                className={styles.image}
+                src={company.photoURL}
+                alt={company.image}
+                layout='fill'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </div>
             <p className={styles.companyDescription}>{company.about}</p>
           </div>
         </div>
