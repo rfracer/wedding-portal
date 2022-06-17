@@ -1,4 +1,4 @@
-import type { GetStaticProps } from 'next';
+import type { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import { gql } from '@apollo/client';
 import Head from 'next/head';
@@ -23,17 +23,18 @@ const MusicBand = ({ companies }) => {
           name={'Music Bands'}
           backgroundImg={'/images/band-category.jpg'}
         />
-        <CategoryList data={companies} />
+        <CategoryList category='music-band' data={companies} />
       </Layout>
     </>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const { city } = query;
   const { data } = await client.query({
     query: gql`
-      query Companies($category: String!) {
-        companies(category: $category) {
+      query Companies($category: String!, $city: String) {
+        companies(category: $category, city: $city) {
           id
           name
           category
@@ -48,7 +49,8 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     `,
     variables: {
-      category: 'band',
+      category: 'hall',
+      city: city,
     },
   });
 
@@ -56,7 +58,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       companies: data.companies,
     },
-    revalidate: 1,
   };
 };
 

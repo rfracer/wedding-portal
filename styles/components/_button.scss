@@ -10,9 +10,12 @@
   font-weight: 500;
   color: rgb(255, 255, 255);
   cursor: pointer;
-
   transition: background-color 0.2s ease-in 0s;
   background-color: $primary;
+
+  &:hover {
+    background-color: #bea559;
+  }
 
   &--outline {
     background: none;

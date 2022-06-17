@@ -5,7 +5,6 @@ import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import Logo from '../../public/images/logo-color.svg';
 import FormMessage from '../FormMessage/FormMessage';
-import { SearchHomeForm } from '../../types/types';
 
 const FormHome = () => {
   const router = useRouter();
@@ -31,20 +30,20 @@ const FormHome = () => {
 
   const optionsServices = [
     { value: 'photography', label: 'Photography' },
-    { value: 'hall', label: 'Hall' },
-    { value: 'band', label: 'Music Band' },
+    { value: 'wedding-hall', label: 'Hall' },
+    { value: 'music-band', label: 'Music Band' },
   ];
 
   const optionsCities = [
     { value: 'kalisz', label: 'Kalisz' },
-    { value: 'poznań', label: 'Poznań' },
+    { value: 'poznan', label: 'Poznań' },
     { value: 'warszawa', label: 'Warszawa' },
   ];
 
   const searchHandler = (data) => {
     router.push({
       pathname: data.service.value,
-      query: { city: data.city.value },
+      query: { city: data.city ? data.city.value : null },
     });
   };
 
@@ -78,7 +77,6 @@ const FormHome = () => {
             options={optionsCities}
           />
         )}
-        rules={{ required: true }}
       />
       <div className={styles.buttonWrapper}>
         <input

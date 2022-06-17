@@ -3,28 +3,27 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  // await prisma.user.create({
-  //   data: {
-  //     id: '3',
-  //     name: 'August',
-  //   },
-  // });
+  await prisma.user.create({
+    data: {
+      id: '4',
+      name: 'Augusto',
+    },
+  });
 
   await prisma.company.create({
     data: {
-      id: '3',
-      name: 'Biały dwór',
+      id: '4',
+      name: 'Kristoff',
       category: 'hall',
-      city: 'Kalisz',
+      city: 'poznan',
       phone: 602554788,
       email: 'testhall@gmail.com',
-      photoURL:
-        '/images/hall-category.jpg',
+      photoURL: '/images/hall-category.jpg',
       about: 'To jest opis sali',
-      website: 'https://www.hall.pl',
+      website: 'https://www.halla.pl',
       offer: 'To jest oferta sali',
       price: '200',
-      authorId: '3',
+      authorId: '4',
     },
   });
 }

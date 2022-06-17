@@ -6,6 +6,7 @@ export const resolvers = {
       return prisma.company.findMany({
         where: {
           category: category,
+          city: city,
         },
       });
     },
