@@ -2,7 +2,6 @@ import type { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navigation from '../components/Navigation/Navigation';
-import Logo from '../public/images/logo-white.svg';
 import { gql } from '@apollo/client';
 import Head from 'next/head';
 import client from '../lib/apollo-client';

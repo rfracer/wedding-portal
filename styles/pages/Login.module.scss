@@ -1,0 +1,75 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+
+  margin: 6rem auto;
+  padding: 4rem;
+  background: $primary-light;
+  border-radius: 20px;
+  box-shadow: 0px 10px 8px 5px rgba(104, 104, 104, 0.2);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem;
+  width: 100%;
+}
+
+.formControl {
+  width: 80%;
+  margin: 0.7rem 0;
+}
+
+.formLabel {
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 50px;
+  margin-top: 1rem;
+  border: 1px solid $light-grey;
+  outline: $primary;
+
+  &:focus {
+    outline: $primary;
+  }
+
+  &::placeholder {
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+.buttonWrapper {
+  margin-top: 2rem;
+}
+
+.providerWrapper {
+  display: flex;
+  align-items: center;
+
+  margin: 0.5rem auto;
+  padding: 1rem 3rem;
+  background-color: $white-color;
+  border-radius: 50px;
+  border: 1px solid rgb(228, 232, 240);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(245, 245, 245);
+    border-color: #000;
+  }
+
+  .providerLabel {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+  }
+}
