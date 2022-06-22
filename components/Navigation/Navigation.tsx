@@ -14,6 +14,10 @@ const Navigation = ({ home }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { data: session } = useSession();
 
+  const handleOpenMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className={`${styles.navWrapper} ${home ? styles.home : null}`}>
       <div className='container'>
@@ -24,20 +28,20 @@ const Navigation = ({ home }: Props) => {
             </a>
           </Link>
           {session ? (
-            <div className={styles.userInfo}>
+            <div onClick={handleOpenMenu} className={styles.userInfo}>
               <IoPersonCircleOutline />
               {session.user.name}
               <div className={styles.userMenuIcon}>
                 <IoCaretDown />
               </div>
-              <UserMenu />
+              <UserMenu status={isOpen} />
             </div>
           ) : (
             <Link href='/login'>
               <a>
                 <div className={styles.userLoginLink}>
                   <IoPersonCircleOutline />
-                  LOGIN
+                  LOGIN / REGISTER
                 </div>
               </a>
             </Link>

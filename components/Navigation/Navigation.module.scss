@@ -11,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .logo {
@@ -34,11 +35,11 @@
 
 .userInfo {
   position: relative;
+  cursor: pointer;
 }
 
 .userMenuIcon {
   margin-left: 0.5rem;
-  cursor: pointer;
 
   svg {
     width: 2rem;

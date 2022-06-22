@@ -1,4 +1,5 @@
 import { Context } from '../graphql/context';
+import bcrypt from 'bcrypt';
 
 export const resolvers = {
   Query: {
@@ -20,8 +21,15 @@ export const resolvers = {
   },
 
   Mutation: {
-    createCompany: (_, args, { prisma }: Context) => {
-      return prisma.company.create({ data: args.input });
+    createCompany: (_, { input, author }, { prisma }: Context) => {
+      return prisma.company.create({
+        data: {
+          author: {
+            connect: { email: author },
+          },
+          ...input,
+        },
+      });
     },
     updateCompany: (_, args, { prisma }: Context) => {
       return prisma.company.update({
@@ -33,6 +41,19 @@ export const resolvers = {
       return prisma.company.delete({
         where: { id: args.id },
       });
+    },
+    signup: async (_, args, { prisma }: Context) => {
+      const hashedPass = await bcrypt.hash(args.password, 10);
+      const { password, ...user } = await prisma.user.create({
+        data: {
+          ...args,
+          password: hashedPass,
+        },
+      });
+
+      return {
+        user,
+      };
     },
   },
 };

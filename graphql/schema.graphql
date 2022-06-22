@@ -1,6 +1,8 @@
 type User {
   id: ID!
   name: String!
+  email: String!
+  password: String!
 }
 
 type Company {
@@ -8,28 +10,26 @@ type Company {
   name: String!
   category: String!
   city: String!
-  phone: Int
+  phone: String!
   email: String!
   website: String
   photoURL: String!
   about: String!
-  offer: String
   price: String!
-  authorId: String!
+  authorEmail: String!
 }
 
 input CompanyInput {
   name: String
   category: String
   city: String
-  phone: Int
+  phone: String
   website: String
   email: String
   photoURL: String
   about: String
-  offer: String
   price: String
-  authorId: String
+  authorEmail: String
 }
 
 type Query {
@@ -40,7 +40,12 @@ type Query {
 }
 
 type Mutation {
-  createCompany(input: CompanyInput!): Company
+  createCompany(input: CompanyInput!, author: String!): Company
   updateCompany(id: ID!, input: CompanyInput): Company
   deleteCompany(id: ID!): Company
+  signup(email: String!, password: String!, name: String!): AuthPayload
+}
+
+type AuthPayload {
+  user: User
 }

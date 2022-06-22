@@ -2,6 +2,8 @@ import NextAuth from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { compare } from 'bcrypt';
 
 import { PrismaClient } from '@prisma/client';
 
@@ -17,7 +19,47 @@ export default NextAuth({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        email: { label: 'Email', type: 'text' },
+        password: { label: 'Password', type: 'password' },
+      },
+      async authorize(credentials, req) {
+        try {
+          const user = await prisma.user.findFirst({
+            where: {
+              email: credentials.email,
+            },
+          });
+
+          if (user !== null) {
+            //Compare the hash
+            const checkPassword = await compare(
+              credentials.password,
+              user.password
+            );
+
+            if (checkPassword) {
+              const userAccount = {
+                name: user.name,
+                image: user.image,
+                email: user.email,
+              };
+              return userAccount;
+            }
+          } else {
+            return null;
+          }
+        } catch (err) {
+          console.log('Authorize error:', err);
+        }
+      },
+    }),
   ],
+  session: {
+    strategy: 'jwt',
+  },
   adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
 });

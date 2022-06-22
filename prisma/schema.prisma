@@ -43,6 +43,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  password      String?  
   accounts      Account[]
   sessions      Session[]
   Company       Company[]
@@ -63,12 +64,11 @@ model Company {
   name      String
   category  String
   city      String
-  phone     Int
+  phone     String
   email     String
   photoURL  String
   website   String
   about     String
-  offer     String
   price     String
   authorId  String   
   author    User     @relation(fields: [authorId], references: [id])

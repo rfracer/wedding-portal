@@ -1,0 +1,28 @@
+.wrapper {
+  margin: 5rem auto;
+  max-width: 100%;
+}
+
+.heading {
+  margin-bottom: 4rem;
+  font-size: 3rem;
+
+  span {
+    position: relative;
+    z-index: -1;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      height: 7px;
+      width: 20%;
+      background-color: $primary;
+    }
+  }
+}
+
+.infoToClients {
+  margin-bottom: 3rem;
+}
