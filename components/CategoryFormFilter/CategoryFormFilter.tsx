@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import FormMessage from '../FormMessage/FormMessage';
 import styles from './CategoryFormFilter.module.scss';
+import Button from '../Button/Button';
 
 type Props = {
   category: string;
@@ -88,7 +89,7 @@ const CategoryFormFilter = ({ category }: Props) => {
           />
         </div>
         <div className={styles.buttonWrapper}>
-          <input className='btn btn--fullwidth' type='submit' value='SEARCH' />
+          <Button type='submit'>SEARCH</Button>
         </div>
       </div>
       {(errors.service || errors.city) && isSubmitted ? (

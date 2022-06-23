@@ -5,6 +5,7 @@ import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import Logo from '../../public/images/logo-color.svg';
 import FormMessage from '../FormMessage/FormMessage';
+import Button from '../Button/Button';
 
 const FormHome = () => {
   const router = useRouter();
@@ -79,11 +80,9 @@ const FormHome = () => {
         )}
       />
       <div className={styles.buttonWrapper}>
-        <input
-          className='btn btn--fullwidth btn--outline'
-          type='submit'
-          value='SEARCH'
-        />
+        <Button type='submit' outline wide>
+          SEARCH
+        </Button>
       </div>
       {(errors.service || errors.city) && isSubmitted ? (
         <FormMessage message={'Please select all fields'} type={'error'} />

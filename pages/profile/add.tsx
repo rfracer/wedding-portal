@@ -7,6 +7,7 @@ import styles from '../../styles/pages/AddService.module.scss';
 import TextInput from '../../components/TextInput/TextInput';
 import { useSession } from 'next-auth/react';
 import SelectInput from '../../components/SelectInput/SelectInput';
+import Button from '../../components/Button/Button';
 
 const AddService = () => {
   const { data: session, status } = useSession();
@@ -121,9 +122,9 @@ const AddService = () => {
               type='number'
               placeholder='Price of your service... $'
             />
-            <button className='btn' type='submit'>
+            <Button loading={loading} type='submit'>
               ADD
-            </button>
+            </Button>
           </form>
         </div>
       </div>
