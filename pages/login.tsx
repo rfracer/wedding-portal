@@ -10,6 +10,7 @@ import FormMessage from '../components/FormMessage/FormMessage';
 
 import { useRouter } from 'next/router';
 import Spinner from '../components/Spinner/Spinner';
+import Button from '../components/Button/Button';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -144,9 +145,7 @@ const Login = () => {
               />
             </div>
             <div className={styles.buttonWrapper}>
-              <button className='btn' type='submit' value='SIGN IN'>
-                {loading ? <Spinner /> : 'SIGN IN'}
-              </button>
+              <Button type='submit'>SIGN IN</Button>
             </div>
           </form>
           <div className={styles.providerWrapper} onClick={handleGoogleLogin}>

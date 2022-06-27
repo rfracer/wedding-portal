@@ -32,6 +32,7 @@ export default NextAuth({
               email: credentials.email,
             },
           });
+          console.log(user);
 
           if (user !== null) {
             //Compare the hash
@@ -57,9 +58,12 @@ export default NextAuth({
       },
     }),
   ],
+  pages: {
+    signIn: '/login',
+  },
   session: {
     strategy: 'jwt',
   },
   adapter: PrismaAdapter(prisma),
-  secret: process.env.SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 });

@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import styles from './UserMenu.module.scss';
 import { signOut } from 'next-auth/react';
-import { IoLogOutOutline, IoAddCircleOutline } from 'react-icons/io5';
+import {
+  IoLogOutOutline,
+  IoAddCircleOutline,
+  IoDocumentsOutline,
+} from 'react-icons/io5';
 
 const UserMenu = ({ status }) => {
   return (
@@ -13,6 +17,13 @@ const UserMenu = ({ status }) => {
               <a>
                 <li>
                   <IoAddCircleOutline /> ADD SERVICE
+                </li>
+              </a>
+            </Link>
+            <Link href='/profile/manage'>
+              <a>
+                <li>
+                  <IoDocumentsOutline /> MANAGE SERVICES
                 </li>
               </a>
             </Link>

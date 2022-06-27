@@ -12,15 +12,15 @@ import {
   IoArrowBackCircle,
   IoMail,
 } from 'react-icons/io5';
-import styles from '../../styles/pages/Company.module.scss';
+import styles from '../../styles/pages/Service.module.scss';
 import Layout from '../../components/Layout/Layout';
 
-const CompanyPage = ({ company }) => {
+const ServicePage = ({ service }) => {
   const router = useRouter();
   return (
     <>
       <Head>
-        <title>{company.name}</title>
+        <title>{service.name}</title>
       </Head>
       <Layout>
         <div className='container'>
@@ -33,38 +33,38 @@ const CompanyPage = ({ company }) => {
             >
               <IoArrowBackCircle /> Back
             </button>
-            <h1 className={styles.companyName}>{company.name}</h1>
+            <h1 className={styles.serviceName}>{service.name}</h1>
             <span className={styles.location}>
               <IoLocation />
-              {company.city}
+              {service.city}
             </span>
             <div className={styles.contactInfo}>
               <span className={styles.contactInfoItem}>
                 <IoCall />
-                <a href={`tel:${company.phone}`}>{company.phone}</a>
+                <a href={`tel:${service.phone}`}>{service.phone}</a>
               </span>
               <span className={styles.contactInfoItem}>
                 <IoGlobe />
-                <a target='_blank' rel='noreferrer' href={company.website}>
-                  {company.website}
+                <a target='_blank' rel='noreferrer' href={service.website}>
+                  {service.website}
                 </a>
               </span>
               <span className={styles.contactInfoItem}>
                 <IoMail />
-                <a href={`mailto:${company.email}`}>{company.email}</a>
+                <a href={`mailto:${service.email}`}>{service.email}</a>
               </span>
             </div>
             <div className={styles.imageWrapper}>
               <Image
                 className={styles.image}
-                src={company.photoURL}
-                alt={company.image}
+                src={service.photoURL}
+                alt={service.image}
                 layout='fill'
                 objectFit='cover'
                 objectPosition='center'
               />
             </div>
-            <p className={styles.companyDescription}>{company.about}</p>
+            <p className={styles.serviceDescription}>{service.about}</p>
           </div>
         </div>
       </Layout>
@@ -75,8 +75,8 @@ const CompanyPage = ({ company }) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data } = await client.query({
     query: gql`
-      query Company($companyId: ID!) {
-        company(id: $companyId) {
+      query Service($serviceId: ID!) {
+        service(id: $serviceId) {
           name
           category
           city
@@ -90,13 +90,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       }
     `,
     variables: {
-      companyId: params.id,
+      serviceId: params.id,
     },
   });
 
   return {
     props: {
-      company: data.company,
+      service: data.service,
     },
     revalidate: 1,
   };
@@ -106,7 +106,7 @@ export async function getStaticPaths() {
   const { data } = await client.query({
     query: gql`
       query {
-        companies {
+        services {
           id
         }
       }
@@ -114,9 +114,9 @@ export async function getStaticPaths() {
   });
 
   return {
-    paths: data.companies.map((company) => ({ params: { id: company.id } })),
+    paths: data.services.map((service) => ({ params: { id: service.id } })),
     fallback: false,
   };
 }
 
-export default CompanyPage;
+export default ServicePage;

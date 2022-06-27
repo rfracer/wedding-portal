@@ -7,10 +7,19 @@ type Props = {
   type?: 'button' | 'submit' | 'reset';
   loading?: boolean;
   children?: React.ReactNode;
+  color?: string;
   onClick?: () => void;
 };
 
-const Button = ({ children, onClick, outline, type, wide, loading }: Props) => {
+const Button = ({
+  children,
+  onClick,
+  outline,
+  type,
+  wide,
+  loading,
+  color,
+}: Props) => {
   const classes = `${styles.btn} ${outline ? styles.btnOutline : ''} ${
     wide ? styles.btnFullWidth : ''
   }`;
@@ -20,6 +29,7 @@ const Button = ({ children, onClick, outline, type, wide, loading }: Props) => {
       onClick={onClick ? onClick : null}
       className={classes}
       type={type ? type : 'button'}
+      style={{ background: `${color}`, borderColor: `${color}` }}
     >
       {loading ? <Spinner /> : children}
     </button>

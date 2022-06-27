@@ -12,8 +12,8 @@ import Footer from '../components/Footer/Footer';
 export const getStaticProps: GetStaticProps = async () => {
   const { data } = await client.query({
     query: gql`
-      query Companies($category: String!) {
-        companies(category: $category) {
+      query Services($category: String!) {
+        services(category: $category) {
           name
           category
         }
@@ -26,13 +26,13 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      companies: data.companies,
+      services: data.services,
     },
     revalidate: 1,
   };
 };
 
-const Home = ({ companies }) => {
+const Home = ({ services }) => {
   return (
     <>
       <Head>

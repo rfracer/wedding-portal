@@ -1,6 +1,10 @@
 .wrapper {
   margin: 5rem auto;
   max-width: 100%;
+
+  @include desktop {
+    max-width: 70%;
+  }
 }
 
 .heading {
@@ -25,4 +29,8 @@
 
 .infoToClients {
   margin-bottom: 3rem;
+}
+
+.buttonWrapper {
+  margin: 2rem 0;
 }

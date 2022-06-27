@@ -32,7 +32,7 @@ const CategoryItem = ({ data }) => {
         />
       </div>
       <div className={styles.mainInfo}>
-        <Link href={`/company/${id}`}>
+        <Link href={`/service/${id}`}>
           <a>
             <h2 className={styles.companyTitle}>{name}</h2>
           </a>

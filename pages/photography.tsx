@@ -9,14 +9,14 @@ import Layout from '../components/Layout/Layout';
 import CategoryHeader from '../components/CategoryHeader/CategoryHeader';
 import CategoryList from '../components/CategoryList/CategoryList';
 
-const Photography = ({ companies }) => {
+const Photography = ({ services }) => {
   return (
     <>
       <Head>
         <title>MYDREAMDAY | Photography - Wedding Portal</title>
         <meta
           name='description'
-          content='Wedding portal | Photography - find best companies for you'
+          content='Wedding portal | Photography - find best services for you'
         />
       </Head>
       <Layout>
@@ -24,7 +24,7 @@ const Photography = ({ companies }) => {
           name={'Photography'}
           backgroundImg={'/images/photography-background.jpg'}
         />
-        <CategoryList category={'photography'} data={companies} />
+        <CategoryList category={'photography'} data={services} />
       </Layout>
     </>
   );
@@ -34,8 +34,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { city } = query;
   const { data } = await client.query({
     query: gql`
-      query Companies($category: String!, $city: String) {
-        companies(category: $category, city: $city) {
+      query Services($category: String!, $city: String) {
+        services(category: $category, city: $city) {
           id
           name
           category
@@ -57,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   return {
     props: {
-      companies: data.companies,
+      services: data.services,
     },
   };
 };

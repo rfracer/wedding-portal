@@ -33,7 +33,7 @@ const CategoryFormFilter = ({ category }: Props) => {
 
   const optionsServices = [
     { value: 'photography', label: 'Photography' },
-    { value: 'wedding-hall', label: 'Hall' },
+    { value: 'hall', label: 'Hall' },
     { value: 'music-band', label: 'Music Band' },
   ];
 
@@ -49,7 +49,9 @@ const CategoryFormFilter = ({ category }: Props) => {
       query: { city: data.city ? data.city.value : null },
     });
   };
-  console.log(router.pathname);
+  console.log(
+    optionsServices.filter((option) => option.value === 'photography')
+  );
   return (
     <form onSubmit={handleSubmit(filterHandler)} className={styles.wrapper}>
       <div className={styles.innerWrapper}>
@@ -57,16 +59,15 @@ const CategoryFormFilter = ({ category }: Props) => {
           <Controller
             name='service'
             control={control}
+            defaultValue={optionsServices.filter(
+              (option) => option.value === category
+            )}
             render={({ field }) => (
               <Select
-                isClearable
                 placeholder='Select service'
                 styles={customStyles}
                 {...field}
                 options={optionsServices}
-                defaultValue={optionsServices.filter(
-                  (option) => option.value === category
-                )}
               />
             )}
             rules={{ required: true }}
@@ -74,6 +75,9 @@ const CategoryFormFilter = ({ category }: Props) => {
           <Controller
             name='city'
             control={control}
+            defaultValue={optionsCities.filter(
+              (option) => option.value === router.query.city
+            )}
             render={({ field }) => (
               <Select
                 isClearable
@@ -81,9 +85,6 @@ const CategoryFormFilter = ({ category }: Props) => {
                 styles={customStyles}
                 {...field}
                 options={optionsCities}
-                defaultValue={optionsCities.filter(
-                  (option) => option.value === router.query.city
-                )}
               />
             )}
           />

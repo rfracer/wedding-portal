@@ -3,26 +3,36 @@ import bcrypt from 'bcrypt';
 
 export const resolvers = {
   Query: {
-    companies: (_, { category, city }, { prisma }: Context) => {
-      return prisma.company.findMany({
+    services: (_, { category, city }, { prisma }: Context) => {
+      return prisma.service.findMany({
         where: {
           category: category,
           city: city,
         },
       });
     },
-    company: (_, { id }, { prisma }: Context) => {
-      return prisma.company.findUnique({
+    service: (_, { id }, { prisma }: Context) => {
+      return prisma.service.findUnique({
         where: {
           id: id,
+        },
+      });
+    },
+    user: (_, { email }, { prisma }: Context) => {
+      return prisma.user.findUnique({
+        where: {
+          email: email,
+        },
+        include: {
+          services: true,
         },
       });
     },
   },
 
   Mutation: {
-    createCompany: (_, { input, author }, { prisma }: Context) => {
-      return prisma.company.create({
+    createService: (_, { input, author }, { prisma }: Context) => {
+      return prisma.service.create({
         data: {
           author: {
             connect: { email: author },
@@ -31,14 +41,14 @@ export const resolvers = {
         },
       });
     },
-    updateCompany: (_, args, { prisma }: Context) => {
-      return prisma.company.update({
+    updateService: (_, args, { prisma }: Context) => {
+      return prisma.service.update({
         where: { id: args.id },
         data: args.input,
       });
     },
-    deleteCompany: (_, args, { prisma }: Context) => {
-      return prisma.company.delete({
+    deleteService: (_, args, { prisma }: Context) => {
+      return prisma.service.delete({
         where: { id: args.id },
       });
     },

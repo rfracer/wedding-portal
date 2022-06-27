@@ -8,7 +8,7 @@ import Layout from '../components/Layout/Layout';
 import CategoryHeader from '../components/CategoryHeader/CategoryHeader';
 import CategoryList from '../components/CategoryList/CategoryList';
 
-const WeddingHall = ({ companies }) => {
+const WeddingHall = ({ services }) => {
   return (
     <>
       <Head>
@@ -23,7 +23,7 @@ const WeddingHall = ({ companies }) => {
           name={'Wedding Hall'}
           backgroundImg={'/images/hall-category.jpg'}
         />
-        <CategoryList category='wedding-hall' data={companies} />
+        <CategoryList category='wedding-hall' data={services} />
       </Layout>
     </>
   );
@@ -33,8 +33,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { city } = query;
   const { data } = await client.query({
     query: gql`
-      query Companies($category: String!, $city: String) {
-        companies(category: $category, city: $city) {
+      query Services($category: String!, $city: String) {
+        services(category: $category, city: $city) {
           id
           name
           category
@@ -56,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   return {
     props: {
-      companies: data.companies,
+      services: data.services,
     },
   };
 };

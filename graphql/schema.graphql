@@ -3,9 +3,10 @@ type User {
   name: String!
   email: String!
   password: String!
+  services: [Service]
 }
 
-type Company {
+type Service {
   id: ID!
   name: String!
   category: String!
@@ -19,7 +20,7 @@ type Company {
   authorEmail: String!
 }
 
-input CompanyInput {
+input ServiceInput {
   name: String
   category: String
   city: String
@@ -34,15 +35,15 @@ input CompanyInput {
 
 type Query {
   info: String!
-  user: User
-  companies(category: String, city: String): [Company]!
-  company(id: ID!): Company
+  user(email: String): User
+  services(category: String, city: String): [Service]!
+  service(id: ID!): Service
 }
 
 type Mutation {
-  createCompany(input: CompanyInput!, author: String!): Company
-  updateCompany(id: ID!, input: CompanyInput): Company
-  deleteCompany(id: ID!): Company
+  createService(input: ServiceInput!, author: String!): Service
+  updateService(id: ID!, input: ServiceInput): Service
+  deleteService(id: ID!): Service
   signup(email: String!, password: String!, name: String!): AuthPayload
 }
 

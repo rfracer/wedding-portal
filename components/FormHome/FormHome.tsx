@@ -31,7 +31,7 @@ const FormHome = () => {
 
   const optionsServices = [
     { value: 'photography', label: 'Photography' },
-    { value: 'wedding-hall', label: 'Hall' },
+    { value: 'hall', label: 'Hall' },
     { value: 'music-band', label: 'Music Band' },
   ];
 
