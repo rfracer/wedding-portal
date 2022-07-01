@@ -5,6 +5,7 @@ import Select from 'react-select';
 import FormMessage from '../FormMessage/FormMessage';
 import styles from './CategoryFormFilter.module.scss';
 import Button from '../Button/Button';
+import { SelectOption, ServiceSelectOptions } from '../../types/types';
 
 type Props = {
   category: string;
@@ -16,7 +17,7 @@ const CategoryFormFilter = ({ category }: Props) => {
     handleSubmit,
     control,
     formState: { errors, isSubmitted },
-  } = useForm();
+  } = useForm<ServiceSelectOptions>();
 
   const customStyles = {
     control: (provided) => ({
@@ -43,15 +44,13 @@ const CategoryFormFilter = ({ category }: Props) => {
     { value: 'warszawa', label: 'Warszawa' },
   ];
 
-  const filterHandler = (data) => {
+  const filterHandler = (data: ServiceSelectOptions) => {
     router.push({
       pathname: data.service.value,
       query: { city: data.city ? data.city.value : null },
     });
   };
-  console.log(
-    optionsServices.filter((option) => option.value === 'photography')
-  );
+
   return (
     <form onSubmit={handleSubmit(filterHandler)} className={styles.wrapper}>
       <div className={styles.innerWrapper}>

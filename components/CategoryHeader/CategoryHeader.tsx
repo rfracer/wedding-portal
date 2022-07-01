@@ -1,7 +1,12 @@
 import React from 'react';
 import styles from './CategoryHeader.module.scss';
 
-const CategoryHeader = ({ name, backgroundImg }) => {
+type Props = {
+  name: string;
+  backgroundImg: string;
+};
+
+const CategoryHeader = ({ name, backgroundImg }: Props) => {
   return (
     <div
       style={{ backgroundImage: `url(${backgroundImg})` }}

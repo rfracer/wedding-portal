@@ -8,8 +8,13 @@ import styles from '../styles/pages/Home.module.scss';
 import Layout from '../components/Layout/Layout';
 import CategoryHeader from '../components/CategoryHeader/CategoryHeader';
 import CategoryList from '../components/CategoryList/CategoryList';
+import { Service } from '../types/types';
 
-const Photography = ({ services }) => {
+type Props = {
+  services: Service[];
+};
+
+const Photography = ({ services }: Props) => {
   return (
     <>
       <Head>

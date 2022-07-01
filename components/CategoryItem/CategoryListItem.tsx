@@ -2,11 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './CategoryListItem.module.scss';
 import { IoWallet } from 'react-icons/io5';
+import { Service } from '../../types/types';
 import Link from 'next/link';
 
-type Props = {};
+type Props = {
+  data: Service;
+};
 
-const CategoryItem = ({ data }) => {
+const CategoryItem = ({ data }: Props) => {
   const {
     id,
     name,

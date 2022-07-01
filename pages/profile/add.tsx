@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import client from '../../lib/apollo-client';
 import { gql, useMutation } from '@apollo/client';
 import Layout from '../../components/Layout/Layout';
 import styles from '../../styles/pages/AddService.module.scss';
@@ -30,12 +29,7 @@ const AddService = () => {
     control,
     reset,
     formState: { errors, isDirty },
-  } = useForm<Service>({
-    defaultValues: {
-      name: '',
-      city: '',
-    },
-  });
+  } = useForm<Service>();
 
   const handleAddService = async (data) => {
     const { category, ...inputData } = data;
@@ -52,12 +46,7 @@ const AddService = () => {
     });
   };
 
-  type OptionType = {
-    value: string;
-    label: string;
-  };
-
-  const optionsServices: OptionType[] = [
+  const optionsServices = [
     { value: 'photography', label: 'Photography' },
     { value: 'hall', label: 'Hall' },
     { value: 'music-band', label: 'Music Band' },

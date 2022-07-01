@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './FormHome.module.scss';
-import { useForm, Controller } from 'react-hook-form';
-import Select from 'react-select';
+import { useForm, Controller, NestedValue } from 'react-hook-form';
+import Select, { StylesConfig } from 'react-select';
 import Logo from '../../public/images/logo-color.svg';
 import FormMessage from '../FormMessage/FormMessage';
 import Button from '../Button/Button';
+import { SelectOption, ServiceFilter } from '../../types/types';
+
+type FormValues = {
+  Select: NestedValue<{ value: string; label: string }>;
+};
 
 const FormHome = () => {
   const router = useRouter();
@@ -13,9 +18,9 @@ const FormHome = () => {
     handleSubmit,
     control,
     formState: { errors, isSubmitted },
-  } = useForm();
+  } = useForm<FormValues>();
 
-  const customStyles = {
+  const customStyles: StylesConfig<SelectOption> = {
     control: (provided, state) => ({
       ...provided,
       borderRadius: 50,
@@ -84,6 +89,7 @@ const FormHome = () => {
           SEARCH
         </Button>
       </div>
+      {console.log(errors)}
       {(errors.service || errors.city) && isSubmitted ? (
         <FormMessage message={'Please select all fields'} type={'error'} />
       ) : null}

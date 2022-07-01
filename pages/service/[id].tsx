@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GetStaticProps } from 'next';
+import type { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import { gql } from '@apollo/client';
 import client from '../../lib/apollo-client';
@@ -14,8 +14,13 @@ import {
 } from 'react-icons/io5';
 import styles from '../../styles/pages/Service.module.scss';
 import Layout from '../../components/Layout/Layout';
+import { Service } from '../../types/types';
 
-const ServicePage = ({ service }) => {
+type Props = {
+  service: Service;
+};
+
+const ServicePage = ({ service }: Props) => {
   const router = useRouter();
   return (
     <>
@@ -58,7 +63,7 @@ const ServicePage = ({ service }) => {
               <Image
                 className={styles.image}
                 src={service.photoURL}
-                alt={service.image}
+                alt={service.name}
                 layout='fill'
                 objectFit='cover'
                 objectPosition='center'
@@ -102,7 +107,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await client.query({
     query: gql`
       query {
@@ -117,6 +122,6 @@ export async function getStaticPaths() {
     paths: data.services.map((service) => ({ params: { id: service.id } })),
     fallback: false,
   };
-}
+};
 
 export default ServicePage;

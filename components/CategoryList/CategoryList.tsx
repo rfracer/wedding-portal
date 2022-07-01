@@ -1,9 +1,15 @@
 import React from 'react';
+import { Service } from '../../types/types';
 import CategoryFormFilter from '../CategoryFormFilter/CategoryFormFilter';
 import CategoryListItem from '../CategoryItem/CategoryListItem';
 import styles from './CategoryList.module.scss';
 
-const CategoryList = ({ data, category }) => {
+type Props = {
+  data: Service[];
+  category: string;
+};
+
+const CategoryList = ({ data, category }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className='container'>

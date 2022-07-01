@@ -7,6 +7,10 @@ import {
   IoDocumentsOutline,
 } from 'react-icons/io5';
 
+type Props = {
+  status: boolean;
+};
+
 const UserMenu = ({ status }) => {
   return (
     <>

@@ -10,8 +10,13 @@ import Layout from '../../components/Layout/Layout';
 import Button from '../../components/Button/Button';
 import Modal from '../../components/Modal/Modal';
 import FormMessage from '../../components/FormMessage/FormMessage';
+import { Service } from '../../types/types';
 
-const ManageServices = ({ services }) => {
+type Props = {
+  services: Service[];
+};
+
+const ManageServices = ({ services }: Props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(false);
   const [deleteMessage, setDeleteMessage] = useState<null | {

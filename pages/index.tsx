@@ -1,38 +1,12 @@
-import type { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navigation from '../components/Navigation/Navigation';
-import { gql } from '@apollo/client';
 import Head from 'next/head';
-import client from '../lib/apollo-client';
 import styles from '../styles/pages/Home.module.scss';
 import FormHome from '../components/FormHome/FormHome';
 import Footer from '../components/Footer/Footer';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await client.query({
-    query: gql`
-      query Services($category: String!) {
-        services(category: $category) {
-          name
-          category
-        }
-      }
-    `,
-    variables: {
-      category: 'hope is a good thing',
-    },
-  });
-
-  return {
-    props: {
-      services: data.services,
-    },
-    revalidate: 1,
-  };
-};
-
-const Home = ({ services }) => {
+const Home = () => {
   return (
     <>
       <Head>

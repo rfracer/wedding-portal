@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
 import Layout from '../components/Layout/Layout';
 import Logo from '../public/images/logo-color.svg';
 import styles from '../styles/pages/Login.module.scss';
@@ -11,6 +11,7 @@ import FormMessage from '../components/FormMessage/FormMessage';
 import { useRouter } from 'next/router';
 import Spinner from '../components/Spinner/Spinner';
 import Button from '../components/Button/Button';
+import { UserAuth } from '../types/types';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<UserAuth>({
     defaultValues: {
       email: '',
       password: '',
@@ -31,7 +32,7 @@ const Login = () => {
     reValidateMode: 'onChange',
   });
 
-  const handleLogin = async (data) => {
+  const handleLogin = async (data: UserAuth) => {
     setLoading(true);
     const { error, status } = await signIn('credentials', {
       redirect: false,
@@ -56,14 +57,14 @@ const Login = () => {
     }
   }, [session, status, router]);
 
-  const handleGithubLogin = async (e) => {
+  const handleGithubLogin = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     await signIn('github', {
       callbackUrl: `${window.location.origin}`,
     });
   };
 
-  const handleGoogleLogin = async (e) => {
+  const handleGoogleLogin = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     await signIn('google', {
       callbackUrl: `${window.location.origin}`,

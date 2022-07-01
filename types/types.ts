@@ -25,3 +25,24 @@ export interface User {
   image?: string;
   company: String;
 }
+
+export interface ServiceFilter {
+  category: string;
+  city: string;
+}
+
+export type SelectOption = {
+  value: string;
+  label: string;
+};
+
+export interface ServiceSelectOptions {
+  city: SelectOption;
+  service: SelectOption;
+}
+
+export interface UserAuth {
+  email: string;
+  password: string;
+  confirmPassword?: string;
+}
